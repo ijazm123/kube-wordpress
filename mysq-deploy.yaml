@@ -9,16 +9,12 @@ spec:
     app: mysql
   clusterIP: None
 ---
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: extensions/v1beta1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: mysql
 spec:
-  selector:
-    matchLabels:
-      app: mysql
-  strategy:
-    type: Recreate
+  replicas: 2
   template:
     metadata:
       labels:
